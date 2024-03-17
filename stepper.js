@@ -44,6 +44,25 @@ var canJump = function(nums) {
 
     return true;
 };
+//number of jumps
+var numJump = function(nums) {
+   let jumps = 0
+   let currentEnd = 0
+   let farthest = 0
 
-numbers =[2, 4, 2, 0, 0, 1]
+   for(let i=0; i<nums.length-1; i++){
+    farthest = Math.max(farthest, i+nums[i])
+
+    if(i == currentEnd){
+        currentEnd = farthest
+        jumps++
+    }
+   }
+   return jumps
+};
+
+numbers =[2,3,1,1,4]
 console.log(arrayStepper(numbers))
+// console.log(numJump(numbers))
+// console.log(jump(numbers))
+// console.log(canJump(numbers))
